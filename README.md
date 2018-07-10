@@ -2,6 +2,10 @@
 
 #### 函数式接口学习 functioninterface package
 
+- 函数式接口：函数式接口有三个方法。                                 
+ 1. 唯一的抽象方法。2.default定义的普通方法。3.使用static定义的静态方法。
+- 函数式接口都有一个注解 @FunctionInterface
+
 #### optional容器学习 optional package 
 
 - of方法。of方法通过工厂方法创建Optional类。需要注意的是，创建对象时传入的参数不能为null。如果传入参数为null，则抛出NullPointerException 。
