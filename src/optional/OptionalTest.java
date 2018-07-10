@@ -1,5 +1,7 @@
 package optional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -25,7 +27,7 @@ public class OptionalTest {
         /**
          * 2.ofNullable方法，为指定的值创建一个Optional 如果指定的值为null，则返回一个空的Optional
          */
-        Optional empty = Optional.ofNullable(null);
+        Optional<String> empty = Optional.ofNullable(null);
         System.out.println(Optional.empty().equals(empty));// 返回true
 
 
@@ -56,8 +58,44 @@ public class OptionalTest {
         System.out.println(empty.orElse("this is no value"));// 打印this is no value
 
         /**
-         * 7.
+         * 7.orElseGet方法 与OrElse方法相似，不同在于默认值的处理。OrElse方法将传入的字符串作为默认值
+         * orElseGet方法则可以接受Supplier接口的实现来生成默认值 可以接受一个lambda的来作为默认值
          */
+
+        System.out.println(empty.orElseGet(() -> "default value"));// 传入lambda表达式初始化默认值
+
+        /**
+         * 8.orElseThrow 如果有值则将其返回，否则抛出supplier接口创建的异常
+         */
+        try {
+            empty.orElseThrow(() -> new OperationException());
+        } catch (Throwable e) {
+            System.out.println(e.getMessage());
+        }
+
+        /**
+         * 9.map方法 如果有值，则对其执行mapping函数得到返回值。如果返回值不为null，则创建包含mapping返回值的
+         * Optional作为map的返回值，否则返回空的Optional
+         */
+        Optional<String> chars = empty.map((s) -> s.toUpperCase());
+        System.out.println(chars.orElse("this is no value"));
+
+        /**
+         * 10.flatMap方法，与map方法类似。不同点在于 flatMap方法中的mapping方法返回值必须是Optional类型的
+         * 而map方法中mapping方法返回值可以是任意类型
+         */
+        Optional<String> flatMap = name.flatMap((s) -> Optional.of(s.toUpperCase()));
+        System.out.println(flatMap.orElse("this is no value"));
+
+        /**
+         * 11.filter方法 如果有值并且满足断言条件返回包含该值得Optional，否则返回空Optional
+         */
+        Optional<String> filter1 = Optional.of("string");
+        Optional<String> optionalS = filter1.filter(e -> e.length() > 3);
+        System.out.println(optionalS.orElseGet(() -> "this is no value"));
+
+        Optional<String> optionalS1 = filter1.filter(e -> e.length() > 6);
+        System.out.println(optionalS1.orElseGet(() -> "this is no value"));
 
     }
 
