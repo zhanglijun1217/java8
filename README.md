@@ -23,4 +23,4 @@
 
 #### lambda表达式应用学习 lambda package 
 
-#### 设计模式学习 designPattern package
+#### 设计模式学习 design_pattern package
