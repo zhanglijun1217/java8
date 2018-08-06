@@ -5,6 +5,7 @@
 - 函数式接口：函数式接口有三个方法。                                 
  1. 唯一的抽象方法。2.default定义的普通方法。3.使用static定义的静态方法。
 - 函数式接口都有一个注解 @FunctionInterface
+- 函数式接口：有且仅有一个抽象方法，Object的public方法除外。
 
 #### optional容器学习 optional package 
 
