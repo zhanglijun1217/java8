@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 /**
  * @author 夸克
- * @create 2018/8/6 17:49
+ * @date 2018/8/6 17:49
  *
  * 帮助开发一些返回bool值得Function 抽象方法是test 接受一个泛型参数T 返回一个Boolean值。
  * 等价于一个Function的boolean型返回值的子集
