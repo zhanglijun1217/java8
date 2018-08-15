@@ -22,7 +22,15 @@
 - flatMap方法，与map方法类似。不同点在于 flatMap方法中的mapping方法返回值必须是Optional类型的 而map方法中mapping方法返回值可以是任意类型
 - filter方法 如果有值并且满足断言条件返回包含该值得Optional，否则返回空Optional
 
-#### lambda表达式应用学习 lambda package 
+#### Stream API应用学习 lambda package 
+
+- java8中加入了新的stream api。这里的stream和IO流不一样，它更像具有Iterable的集合类，但行为和集合类又有所不同。
+最新添加的Stream API把真正的函数式编程风格引入到Java中，极大的提供Java程序员的生产力，让程序员写出高效率、干净、
+简洁的代码。
+- 关于stream api的几个学习博客
+1. [Stream api中方法介绍](https://blog.csdn.net/sun_promise/article/details/51480257)
+2. [ibm中关于stream的介绍](https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/)
+3. [个人写的一个list转map的总结](https://zhanglijun1217.github.io/blog/2018/08/12/Java8%E4%B8%ADlist%E8%BD%ACmap%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/#more)
 
 #### 设计模式学习 design_pattern package
 
