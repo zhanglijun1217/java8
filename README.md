@@ -39,6 +39,8 @@
 3. 实现类可以重写父接口中定义的方法。
 4. 当父类和父接口都存在default方法时，使用父类中重写的default方法。
 特别的，如果一个类实现了两个接口，这两个接口中有同名的default方法签名时，此时会编译不通过，必须在子类中重写这个default方法
+- 一次工作中遇到的接口默认方法的实践
+[java8中的接口默认方法](https://zhanglijun1217.github.io/blog/2018/10/10/java8%E5%A2%9E%E5%8A%A0%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95/)
 
 #### 设计模式学习 design_pattern package
 
