@@ -42,7 +42,7 @@
 - 一次工作中遇到的接口默认方法的实践
 1. [java8中的接口默认方法](https://zhanglijun1217.github.io/blog/2018/10/10/java8%E5%A2%9E%E5%8A%A0%E7%9A%84%E6%8E%A5%E5%8F%A3%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95/)
 
-#### tiem_api的学习
+#### time_api的学习
 1. java8中加入了关于时间的api，主要是LocalDateTiem的应用，这里根据一篇博客地址去学习了相关便捷的API。
 2. 博客地址：[LocalDateTime的认识](http://rensanning.iteye.com/blog/2034622)
 
