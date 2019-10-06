@@ -1,6 +1,7 @@
 package optional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -97,6 +98,68 @@ public class OptionalTest {
         Optional<String> optionalS1 = filter1.filter(e -> e.length() > 6);
         System.out.println(optionalS1.orElseGet(() -> "this is no value"));
 
+
+
+
+        // Optional接口对对象中包含list操作的一个实践
+        Person person = new Person();
+        person.setName("aaa");
+        List<Hobby> hobbies = Arrays.asList(new Hobby("h1"), new Hobby("h2"));
+
+//        person.setHobbies(hobbies);
+
+        // Optional实践  因为Optional.map返回的也是一个Optional，所以对象中的集合 可以通过map方法进行Optional的封装
+        // 达到防止空指针的效果
+        System.out.println(
+                Optional.of(person)
+                .map(Person::getHobbies).orElseGet(ArrayList::new)
+        );
+
+    }
+
+
+    static class Person {
+        String name;
+        List<Hobby> hobbies;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public List<Hobby> getHobbies() {
+            return hobbies;
+        }
+
+        public void setHobbies(List<Hobby> hobbies) {
+            this.hobbies = hobbies;
+        }
+    }
+
+    static  class  Hobby {
+        String name;
+
+        public Hobby(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return "Hobby{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
     }
 
 }
