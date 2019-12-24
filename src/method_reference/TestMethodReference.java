@@ -40,11 +40,12 @@ public class TestMethodReference {
 
 
         List<Student> students = Arrays.asList(s1, s2, s3);
-        students.sort(Student::compareByName); // 在实例方法内部compareByName处打了断点，会被调用两次（list中只有三个元素），
+//        students.sort(Student::compareByName); // 在实例方法内部compareByName处打了断点，会被调用两次（list中只有三个元素），
         // List.sort方法接收参数是一个Comparator，而这个实例方法是返回int的。
         // 这个说明 类::实例方法 这种方法引用是肯定要有一个对象去调用这个实例方法的。这个对象就是传入lambda表达式的list中的第一个Student对象 而后一个student对象会作为compareByName的参数传入
 
 
+        students.sort((st1, st2) -> st1.compareByName(st2));
         students.forEach(System.out::println);
     }
 
