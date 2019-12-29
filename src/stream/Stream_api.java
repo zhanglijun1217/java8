@@ -66,6 +66,14 @@ public class Stream_api {
             System.out.println("asdasdasdas");//  这里并不会输出 因为map操作并没有执行
             return i+1;
         });
+
+
+
+        // 流的短路
+        Arrays.stream(new int[] {111, 222, 333}).filter(a -> {
+            System.out.println("filter 过程" +    a); // 这里只会打印一次111
+            return a>100;
+        }).findFirst().ifPresent(System.out::println);
     }
 
     static void printf(List list) {
