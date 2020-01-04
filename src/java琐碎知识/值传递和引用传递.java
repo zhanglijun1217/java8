@@ -14,6 +14,7 @@ public class 值传递和引用传递 {
         /**
          * 来自知乎 Java 到底是值传递还是引用传递？ - Intopass的回答 - 知乎
          * https://www.zhihu.com/question/31203609/answer/50992895
+         * https://www.zhihu.com/question/35014775/answer/60785988
          */
         int a = 10;
         change(10);
