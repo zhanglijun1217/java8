@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * Created by zlj on 2019/12/24.
+ *
  */
 public class Stream_api {
 
@@ -27,7 +27,7 @@ public class Stream_api {
 
 
         // collector.joining
-        System.out.println(Arrays.asList("32321213","dasda","海棠朵朵").stream().collect(Collectors.joining()).toString());
+        System.out.println(Arrays.asList("32321213","dasda","海棠朵朵").stream().collect(Collectors.joining()));
 
         // stream.peek方法
 

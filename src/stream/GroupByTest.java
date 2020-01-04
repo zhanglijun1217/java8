@@ -1,12 +1,10 @@
 package stream;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by zlj on 2019/12/29.
+ * groupBy和分区的demoTest
  */
 public class GroupByTest {
 
@@ -22,6 +20,29 @@ public class GroupByTest {
 
         // 也可以直接对value求平均值。
         students.stream().collect(Collectors.groupingBy(Student::getName, Collectors.averagingDouble(Student::getScore))).forEach(GroupByTest::printKv);
+
+        System.out.println("-------------------------------");
+        // 分组之后再分组
+        students.stream().collect(Collectors.groupingBy(Student::getName, Collectors.groupingBy(Student::getScore))).forEach(GroupByTest::printKv);
+
+        // 分区之后再分区
+        students.stream().collect(Collectors.partitioningBy(e -> e.getScore() > 300, Collectors.partitioningBy(e -> e.getScore() > 340))).forEach(GroupByTest::printKv);
+
+
+        System.out.println("-------------------------------");
+        // collectingAndThen方法  先根据名字分组 然后找到分数最小的学生，因为minBy返回的是option，而这里student都是存在的，应该直接调用get方法得到学生对象，
+        // 这样返回值就是一个 Map<Stirng, stundet>对象，而不是一个Map<String,Optional<Student>>对象。
+        students.stream().collect
+                (
+                        Collectors.groupingBy
+                                (Student::getName,
+                                        Collectors.collectingAndThen(
+                                                Collectors.minBy(Comparator.comparingInt(Student::getScore)),
+                                                Optional::get
+                                        )
+                                )
+                )
+                .forEach(GroupByTest::printKv);
 
     }
 
@@ -52,6 +73,14 @@ public class GroupByTest {
 
         public void setScore(int score) {
             this.score = score;
+        }
+
+        @Override
+        public String toString() {
+            return "Student{" +
+                    "name='" + name + '\'' +
+                    ", score=" + score +
+                    '}';
         }
     }
 }
