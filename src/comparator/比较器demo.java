@@ -20,7 +20,7 @@ public class 比较器demo {
         // Collections.sort提供了传入比较器的方式去排序 （这里实现根据字符串长度降序排序）
 //        list.sort(Comparator.comparingInt(String::length).reversed());
 
-        // 这里尝试使用lambda方式去实现根据字符串长度降序排序
+        // 这里尝试使用lambda方式去实现根据字符串长度降序排序  这里用方法引用没问题 因为指定了String类型 String::length
 //        list.sort(Comparator.comparingInt(item -> item.length()).reversed()); // 注意如果调用了reversed方法，那么item.length会报编译错误。但是不调用reversed是可以编译通过的
         // 这里是因为 失去了lambda的类型推断 具体见博客：https://blog.csdn.net/u013096088/article/details/69367260
 
